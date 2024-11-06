@@ -14,6 +14,8 @@ alias lg="lazygit"
 alias reboot="sudo reboot now"
 alias shutdown="sudo shutdown now"
 alias clip="xclip -selection clipboard"
+alias chrome=/opt/google/chrome/google-chrome
+
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 eval "$(starship init zsh)"
