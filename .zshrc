@@ -27,3 +27,10 @@ eval "$(zoxide init zsh)"
 # SSH Agent
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
+# Lese die Schlüssel aus der Datei
+KEYCHAIN_KEYS=$(<~/.ssh/keychain_keys)
+
+# keychain initialisieren
+for key in $KEYCHAIN_KEYS; do
+    eval `keychain --eval --agents ssh $key`
+done
