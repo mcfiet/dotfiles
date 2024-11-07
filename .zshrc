@@ -14,7 +14,7 @@ alias lg="lazygit"
 alias reboot="sudo reboot now"
 alias shutdown="sudo shutdown now"
 alias clip="xclip -selection clipboard"
-alias chrome=/opt/google/chrome/google-chrome
+alias chrome="nohup google-chrome-stable > /dev/null 2>&1 &"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
