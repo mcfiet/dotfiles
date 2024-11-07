@@ -18,12 +18,12 @@ alias chrome="nohup google-chrome-stable > /dev/null 2>&1 &"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
-eval "$(starship init zsh)"
-
 # Star Ship
 eval "$(starship init zsh)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
 
+# SSH Agent
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
