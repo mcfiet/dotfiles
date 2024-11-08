@@ -15,7 +15,7 @@ alias reboot="sudo reboot now"
 alias shutdown="sudo shutdown now"
 alias clip="xclip -selection clipboard"
 alias chrome="nohup google-chrome-stable > /dev/null 2>&1 &"
-alias nv="neovide"
+alias nv="neovide & disown"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
