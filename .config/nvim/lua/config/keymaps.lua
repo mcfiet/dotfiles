@@ -7,3 +7,6 @@ vim.api.nvim_set_keymap("n", "<leader>md", ":MarkdownPreviewToggle<CR>", { norem
 
 -- Yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+
+-- Format document
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format document" })
