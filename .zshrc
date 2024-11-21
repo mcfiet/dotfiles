@@ -16,6 +16,7 @@ alias shutdown="sudo shutdown now"
 alias clip="xclip -selection clipboard"
 alias chrome="nohup google-chrome-stable > /dev/null 2>&1 &"
 alias nv="neovide & disown"
+alias air='$(go env GOPATH)/bin/air'
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
