@@ -7,7 +7,7 @@ Dotfiles is a collection of configuration files for various programs that I use.
 ### Basics
 
 ```bash
-sudo pacman -S stow kitty starship fzf zoxide xclip xsel keychain lazygit neovide
+sudo pacman -S stow kitty starship fzf zoxide xclip xsel keychain lazygit neovide deno
 ```
 
 ### Oh My Zsh
