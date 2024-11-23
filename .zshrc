@@ -17,6 +17,9 @@ alias clip="xclip -selection clipboard"
 alias chrome="nohup google-chrome-stable > /dev/null 2>&1 &"
 alias nv="neovide & disown"
 alias air='$(go env GOPATH)/bin/air'
+alias dpgstart='docker run --name postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres'
+alias dpgkill="docker stop postgres-container && docker rm postgres-container"
+alias dpgstop="docker stop postgres-container"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
