@@ -37,9 +37,7 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 KEYCHAIN_KEYS=$(<~/.ssh/keychain_keys)
 
 # keychain initialisieren
-for key in $KEYCHAIN_KEYS; do
-    eval `keychain --eval --agents ssh $key`
-done
+eval $(keychain --eval $KEYCHAIN_KEYS)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
