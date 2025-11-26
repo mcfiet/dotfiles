@@ -1,47 +1,42 @@
-local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+--
+--
+vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true }) -- for normal ctrl+delete behaviour
 
-keymap.set("n", "x", '"_x')
+-- Turn off normal-mode macro recording
+vim.keymap.set("n", "q", "<Nop>", { noremap = true, silent = true })
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
+vim.keymap.set('n', '<ISO_Level3_Shift-j>', '<cmd>m .+1<cr>==gi', { desc = 'Move line down' })
+vim.keymap.set('n', '<ISO_Level3_Shift-k>', '<cmd>m .-2<cr>==gi', { desc = 'Move line up' })
 
--- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+-- Map the exact sequences that ISO_Level3_Shift sends
+-- The ^H is a literal Ctrl-H character (ASCII 8)
+vim.keymap.set("n", "<Char-0x80><Char-0xfc><Char-0x08>j", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<Char-0x80><Char-0xfc><Char-0x08>k", ":m .-2<CR>==", { desc = "Move line up" })
 
--- Save file and quit
-keymap.set("n", "<Leader>w", ":update<Return>", opts)
-keymap.set("n", "<Leader>q", ":quit<Return>", opts)
-keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
+-- For visual mode
+vim.keymap.set("v", "<Char-0x80><Char-0xfc><Char-0x08>j", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "<Char-0x80><Char-0xfc><Char-0x08>k", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
--- File explorer with NvimTree
-keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
-keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
+vim.keymap.set("i", "<Char-0x80><Char-0xfc><Char-0x08>j", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+vim.keymap.set("i", "<Char-0x80><Char-0xfc><Char-0x08>k", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 
--- Tabs
-keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-keymap.set("n", "tw", ":tabclose<Return>", opts)
+local hop = require("hop")
+local directions = require("hop.hint").HintDirection
+vim.keymap.set("", "f", function()
+  hop.hint_anywhere({})
+end, { remap = true })
+vim.keymap.set("", "F", function()
+  hop.hint_words({})
+end, { remap = true })
+vim.keymap.set("", "t", function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+end, { remap = true })
+vim.keymap.set("", "T", function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+end, { remap = true })
 
--- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
-
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
-
--- Resize window
-keymap.set("n", "<C-S-h>", "<C-w><")
-keymap.set("n", "<C-S-l>", "<C-w>>")
-keymap.set("n", "<C-S-k>", "<C-w>+")
-keymap.set("n", "<C-S-j>", "<C-w>-")
-
--- Diagnostics
-keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
-end, opts)
+-- Custom buffer keymaps using Snacks
+vim.keymap.set("n", "<leader><space>", function() Snacks.picker.buffers() end, { desc = "Buffers" })

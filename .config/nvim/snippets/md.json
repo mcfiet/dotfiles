@@ -1,0 +1,63 @@
+{
+  "Todo checkbox": {
+    "prefix": "todo",
+    "body": [
+      "- [ ] "
+    ],
+    "description": "Insert a markdown todo Checkbox"
+  },
+  "Check Tick": {
+    "prefix": "checkTick",
+    "body": [
+      "️✓"
+    ]
+  },
+  "Check Tick Box": {
+    "prefix": "checkTickBox",
+    "body": [
+      "️🗹"
+    ]
+  },
+  "Check Tick Color Filled": {
+    "prefix": "checkTickColorFilled",
+    "body": [
+      "️✅"
+    ]
+  },
+  "Check Denied Color": {
+    "prefix": "checkDeniedColor",
+    "body": [
+      "️❌"
+    ]
+  },
+  "Check Denied Box": {
+    "prefix": "checkDeniedBox",
+    "body": [
+      "️🗷"
+    ]
+  },
+  "Question Mark": {
+    "prefix": "questionMark",
+    "body": [
+      "️❔"
+    ]
+  },
+  "Question Mark Color": {
+    "prefix": "questionMarkColor",
+    "body": [
+      "️❓"
+    ]
+  },
+  "Exclamation Mark Color": {
+    "prefix": "exclamationMarkColor",
+    "body": [
+      "️❗"
+    ]
+  },
+  "Exclamation Mark": {
+    "prefix": "exclamationMark",
+    "body": [
+      "️❕"
+    ]
+  }
+}
